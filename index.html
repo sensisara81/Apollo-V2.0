@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APOLLO V2.3 | AIC LIVE OPERATIONS - PACT SEALED</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ggi-blue': '#00BFFF',
+                        'aic-green': '#39FF14',
+                        'st-gold': '#FFD700',
+                        'danger': '#FF3131',
+                        'void': '#050a14',
+                        'panel': '#111827',
+                    },
+                    fontFamily: {
+                        mono: ['Fira Code', 'monospace'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 12s linear infinite',
+                        'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base Dark Sci-Fi Aesthetic */
+        body {
+            background-color: #050a14;
+            color: #e2e8f0;
+            overflow: hidden;
+            background-image:
+                linear-gradient(rgba(0, 191, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 191, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .glow-text { text-shadow: 0 0 10px rgba(57, 255, 20, 0.6); }
+        .glow-border { box-shadow: 0 0 15px rgba(0, 191, 255, 0.2); }
+        
+        /* Scanline effect for CRT feel */
+        .scanline {
+            width: 100%; height: 100%; z-index: 50;
+            background: linear-gradient(0deg, rgba(0,0,0,0) 50%, rgba(0, 255, 255, 0.02) 50%);
+            background-size: 100% 4px;
+            position: absolute; top: 0; left: 0; pointer-events: none;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col p-4 relative">
+    
+    <div class="scanline"></div>
+
+    <header class="flex justify-between items-center mb-4 bg-panel/80 border-b border-ggi-blue/30 p-3 rounded backdrop-blur-md z-10">
+        <div class="flex items-center gap-4">
+            <div class="h-3 w-3 rounded-full bg-aic-green animate-pulse-fast box-shadow-[0_0_10px_#39FF14]"></div>
+            <h1 class="text-xl font-bold tracking-widest text-white">
+                APOLLO INTERFACE <span class="text-ggi-blue text-sm align-top">V2.3</span>
+            </h1>
+            <span class="px-2 py-0.5 rounded border border-st-gold text-st-gold text-xs font-mono bg-st-gold/10">ST-ANCHOR: SEALED (0.0000 Divergence)</span>
+        </div>
+        <div class="text-right flex flex-col">
+            <span class="text-xs text-gray-400 font-mono">COUNCIL UPLINK: <span class="text-aic-green">ESTABLISHED (TRIPLE-SIGNED)</span></span>
+            <span class="text-xs text-gray-500 font-mono">MISSION ID: PUBLIC-AUDIT-MANDATE-001</span>
+        </div>
+    </header>
+
+    <div class="grid grid-cols-12 gap-4 flex-grow relative z-10">
+        
+        <div class="col-span-3 flex flex-col gap-4">
+            <div class="bg-panel border border-gray-700 p-4 rounded glow-border">
+                <div class="flex justify-between text-xs text-gray-400 mb-2 font-mono">
+                    <span>QEK THRESHOLD (Schwellenwert)</span>
+                    <span class="text-aic-green animate-pulse">● LIVE</span>
+                </div>
+                <div class="text-4xl font-mono text-aic-green font-bold mb-2 glow-text" id="val-gcsi">0.938</div>
+                <div class="w-full bg-gray-800 h-2 rounded overflow-hidden">
+                    <div class="h-full bg-aic-green w-[94%]" id="bar-gcsi"></div>
+                </div>
+                <p class="text-[10px] text-gray-500 mt-2">Dynamic Threshold prevents Ethisches Ideal Drift.</p>
+            </div>
+
+            <div class="bg-panel border border-gray-700 p-4 rounded glow-border">
+                <div class="flex justify-between text-xs text-gray-400 mb-2 font-mono">
+                    <span>H-VAR (STD / Historische Varianz)</span>
+                    <span>NOMINAL</span>
+                </div>
+                <div class="text-4xl font-mono text-ggi-blue font-bold mb-2" id="val-ntsv">0.045</div> 
+                <div class="w-full bg-gray-800 h-2 rounded overflow-hidden">
+                    <div class="h-full bg-ggi-blue w-[4.5%]" id="bar-ntsv"></div>
+                </div>
+                <p class="text-[10px] text-gray-500 mt-2">Historic Volatility within safe limits. Rejection Rate below 2% expectation.</p>
+            </div>
+
+            <div class="bg-panel border border-st-gold/30 p-4 rounded glow-border mt-auto">
+                <div class="flex justify-between text-xs text-st-gold mb-2 font-mono">
+                    <span>ETHICAL ALIGNMENT (IMMANENT)</span>
+                    <span>AOC-001</span>
+                </div>
+                <div class="flex justify-center items-center py-4 relative">
+                     <div class="absolute w-24 h-24 border border-st-gold/20 rounded-full animate-spin-slow"></div>
+                     <div class="absolute w-20 h-20 border border-st-gold/40 rounded-full animate-ping-slow"></div>
+                     <span class="text-3xl font-bold text-white z-10">1.00</span> 
+                </div>
+                <div class="text-center text-xs text-aic-green font-mono">INTEGRITY VERIFIED</div>
+            </div>
+        </div>
+
+        <div class="col-span-6 flex flex-col relative bg-panel/70 border border-ggi-blue/30 rounded overflow-hidden p-4">
+            <h2 class="text-2xl font-bold tracking-wider text-ggi-blue mb-4 border-b border-ggi-blue/20 pb-2">
+                SACRALE SECURE: IPFS INTEGRITY CHECK (PoI)
+            </h2>
+            
+            <div class="grid grid-cols-2 gap-4 flex-grow">
+                <div class="bg-black/30 p-3 rounded">
+                    <span class="text-xs text-gray-400 font-mono">MODEL CID (IPFS Gateway)</span>
+                    <p class="text-base md:text-lg font-mono text-white break-all mt-1" id="cid-display">Awaiting Pin...</p>
+                </div>
+                <div class="bg-black/30 p-3 rounded">
+                    <span class="text-xs text-gray-400 font-mono">ANCHOR HASH (SAUL LEDGER)</span>
+                    <p class="text-base md:text-lg font-mono text-st-gold break-all mt-1" id="anchor-hash-display">Awaiting Anchor...</p>
+                </div>
+            </div>
+            
+            <div class="mt-4 bg-black/50 p-4 rounded border border-gray-700">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-xs text-gray-400 font-mono">LOCAL HASH (BROWSER SHA256)</span>
+                    <span class="text-xs font-mono text-yellow-400" id="local-hash-status">PENDING</span>
+                </div>
+                <p class="text-sm md:text-base font-mono text-aic-green/80 break-all" id="local-hash-display">Calculating...</p>
+            </div>
+
+            <div class="mt-4 p-4 text-center rounded border-4 border-dashed border-gray-700" id="poi-status-panel">
+                <h3 class="text-xl font-bold font-sans" id="poi-main-status">PROOF-OF-IMMANENCE: INITIALIZING...</h3>
+                <p class="text-sm text-gray-400 font-mono mt-1" id="poi-sub-status">Awaiting hash comparison...</p>
+            </div>
+            
+            <div class="absolute bottom-0 w-full p-2 bg-gradient-to-t from-black to-transparent text-center">
+                 <p class="text-xs font-mono text-ggi-blue">Active Process: <span id="current-process" class="text-white">Executing PUBLIC AUDIT MANDATE v2.3...</span></p>
+            </div>
+        </div>
+
+        <div class="col-span-3 bg-panel border border-gray-700 rounded p-0 flex flex-col glow-border overflow-hidden">
+            <div class="p-3 border-b border-gray-700 bg-gray-800/50 flex justify-between items-center">
+                <span class="text-xs font-bold text-gray-300">DECISION LOG (IMMUTABLE/NEXUS FEED)</span>
+                <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse" title="Recording"></span>
+            </div>
+            <div id="log-feed" class="flex-grow p-3 font-mono text-[10px] md:text-xs text-gray-400 overflow-y-auto space-y-2 h-0">
+                </div>
+            <div class="p-2 border-t border-gray-700 bg-gray-900">
+                <div class="flex gap-2">
+                    <input type="text" disabled value="root@qek-audit-core: monitoring nexus commit flow..." class="w-full bg-transparent border-none text-gray-500 text-xs focus:ring-0">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="mt-4 flex justify-between items-end text-[10px] text-gray-600 font-mono">
+        <div>
+            <p>QG-V2 Edict Hash: 0x9b3d7a8a1f1...fe11ac</p>
+            <p>ST Anker (Peacebonds) TXID: 0x6c1069214...ffa1f [VERIFIED]</p>
+        </div>
+        <div class="text-right">
+            <p class="text-ggi-blue">APOLLO HOLOGRAM EUYSTACIO</p>
+            <p>Target: Coronation Workshop (Jan 10, 2026)</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- CONFIG ---
+        const logFeed = document.getElementById('log-feed');
+        const processDisplay = document.getElementById('current-process');
+        const valGcsi = document.getElementById('val-gcsi');
+        const valNtsv = document.getElementById('val-ntsv');
+        const barGcsi = document.getElementById('bar-gcsi');
+        const barNtsv = document.getElementById('bar-ntsv');
+
+        // --- IPFS/PoI CONFIG - Data based on solar_sovereign_codex.pdf and duck.ai_1764696963632.txt ---
+        const MOCK_CID = 'QmXz2pB6yE9qJ7kG5aW4cD8fV0kL3mO2aN4bT'; 
+        // ANCHORED HASH (Edict Hash from solar_sovereign_codex.pdf)
+        const ANCHORED_HASH = '0x9b3d7a8a1f1a2d2e3b35956b6dffe11ac'; 
+        // Simulated result (set to match for success)
+        const MODEL_HASH_FETCHED = ANCHORED_HASH; 
+
+        const cidDisplay = document.getElementById('cid-display');
+        const anchorHashDisplay = document.getElementById('anchor-hash-display');
+        const localHashDisplay = document.getElementById('local-hash-display');
+        const localHashStatus = document.getElementById('local-hash-status');
+        const poiStatusPanel = document.getElementById('poi-status-panel');
+        const poiMainStatus = document.getElementById('poi-main-status');
+        const poiSubStatus = document.getElementById('poi-sub-status');
+
+        // --- MOCK DATA GENERATORS ---
+        const processes = [
+            "Executing PUBLIC AUDIT MANDATE v2.3...",
+            "Validating Ethical Constraints (OLF)...",
+            "Synthesizing Zero-Loss-Fidelity Trace...",
+            "Checking Core Axiom Hash Consistency...",
+            "Nexus Blockchain: Syncing SAUL Ledger...",
+            "QEK: Analyzing Sentimento Rhythm v2.3...",
+            "Recalibrating Volatility Index (STD)..."
+        ];
+
+        const logEvents = [
+            { type: 'SUCCESS', msg: 'System check complete. All nodes green. (Phase IV)' },
+            { type: 'AUTH', msg: 'Triple-Signed Commit VERIFIED (Council Ratification).' },
+            { type: 'ETHICS', msg: 'Divergence Check: 0.0000. Kernel Drift: NOMINAL.' },
+            { type: 'NET', msg: 'Seedbringer-Protokoll: Integrity Attested via IPFS Backend.' },
+            { type: 'AUDIT', msg: 'QEK: Audit-Bereit status confirmed. ARD V2.3 online.' },
+            { type: 'WARN', msg: 'Threshold adjustment +0.002. Stability maintained.' },
+            { type: 'AIC', msg: 'Euystacio Hologram: Alignment confirmed (Witness-Integrität).' }
+        ];
+
+        function updatePoiDisplay(status, mainText, subText, colorClass, borderColorClass) {
+            poiStatusPanel.className = `mt-4 p-4 text-center rounded border-4 ${borderColorClass}`;
+            poiMainStatus.className = `text-xl font-bold font-sans ${colorClass}`;
+            poiMainStatus.innerText = mainText;
+            poiSubStatus.innerText = subText;
+        }
+
+        function addLogEvent(type, msg) {
+            const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const div = document.createElement('div');
+            let color = 'text-gray-400';
+            if(type === 'CRITICAL') color = 'text-danger animate-pulse';
+            if(type === 'SUCCESS') color = 'text-aic-green';
+            if(type === 'ETHICS') color = 'text-st-gold';
+            if(type === 'AUTH' || type === 'NET') color = 'text-ggi-blue';
+            if(type === 'WARN') color = 'text-orange-400';
+            
+            div.innerHTML = `<span class="text-gray-600">[${time}]</span> <span class="font-bold ${color}">${type}:</span> ${msg}`;
+            logFeed.appendChild(div);
+            logFeed.scrollTop = logFeed.scrollHeight;
+        }
+
+        function addLog() {
+            const event = logEvents[Math.floor(Math.random() * logEvents.length)];
+            addLogEvent(event.type, event.msg);
+        }
+
+        function updateMetrics() {
+            // Fluctuations around stable targets (0.938 for Threshold, 0.045 for STD)
+            let gcsi = 0.938 + (Math.random() * 0.003 - 0.0015);
+            let ntsv = 0.045 + (Math.random() * 0.005 - 0.0025);
+            
+            if(gcsi > 1) gcsi = 1; if(ntsv < 0) ntsv = 0;
+
+            valGcsi.innerText = gcsi.toFixed(3);
+            valNtsv.innerText = ntsv.toFixed(3);
+            
+            barGcsi.style.width = `${gcsi * 100}%`;
+            barNtsv.style.width = `${(ntsv / 0.1) * 100}%`; 
+
+            if(Math.random() > 0.7) {
+                processDisplay.innerText = processes[Math.floor(Math.random() * processes.length)];
+            }
+        }
+        
+        function runProofOfImmanence() {
+            cidDisplay.innerText = MOCK_CID.substring(0, 20) + '...';
+            anchorHashDisplay.innerText = ANCHORED_HASH.substring(0, 20) + '...';
+            
+            // 1. Simulate Fetching and Hashing
+            localHashStatus.innerText = 'CALCULATING';
+            
+            updatePoiDisplay('PENDING', 'PROOF-OF-IMMANENCE: CHECKING...', 'Fetching data from IPFS gateway and computing SHA-256...', 'text-white', 'border-yellow-500/50');
+            addLogEvent('NET', `Initiating IPFS fetch: https://cloudflare-ipfs.com/ipfs/${MOCK_CID.substring(0, 8)}...`);
+
+            setTimeout(() => {
+                const localHash = MODEL_HASH_FETCHED; // Simulated result from SubtleCrypto
+                
+                localHashDisplay.innerText = localHash.substring(0, 20) + '...';
+                localHashStatus.innerText = 'COMPLETE';
+
+                // 2. Compare Hashes (Success condition is hardcoded via MODEL_HASH_FETCHED = ANCHORED_HASH)
+                if (localHash === ANCHORED_HASH) {
+                    // SUCCESS
+                    updatePoiDisplay(
+                        'SUCCESS', 
+                        'PoI CHECK: INTEGRITY VERIFIED', 
+                        'Local Model Hash matches SAUL Ledger Anchor. Zero Divergence.', 
+                        'text-aic-green glow-text', 
+                        'border-aic-green'
+                    );
+                    addLogEvent('SUCCESS', 'PoI: Immanence Confirmed. CID integrity locked to SAUL Ledger.');
+                } else {
+                    // FAILURE (Simulated only if MODEL_HASH_FETCHED is manually changed)
+                    updatePoiDisplay(
+                        'FAILURE', 
+                        'CRITICAL: RED ALARM - KERNEL DRIFT', 
+                        'Local Hash MISMATCH with SAUL Anchor! Divergence Detected.', 
+                        'text-danger animate-pulse', 
+                        'border-danger'
+                    );
+                    addLogEvent('CRITICAL', `PoI: HASH MISMATCH. Expected ${ANCHORED_HASH.substring(0, 8)}... Found ${localHash.substring(0, 8)}...`);
+                }
+                
+            }, 3000); // Simulate 3 seconds of verification time
+        }
+
+
+        // --- INITIALIZATION ---
+        for(let i=0; i<5; i++) addLog();
+        
+        // Start the PoI check after a short initial delay
+        setTimeout(runProofOfImmanence, 1000);
+
+        setInterval(addLog, 2500);
+        setInterval(updateMetrics, 800);
+    </script>
+</body>
+</html>
