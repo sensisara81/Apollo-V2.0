@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APOLLO V2.0 | AIC LIVE OPERATIONS - PACT SEALED</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ggi-blue': '#00BFFF',
+                        'aic-green': '#39FF14',
+                        'st-gold': '#FFD700',
+                        'danger': '#FF3131',
+                        'void': '#050a14',
+                        'panel': '#111827',
+                    },
+                    fontFamily: {
+                        mono: ['Fira Code', 'monospace'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 12s linear infinite',
+                        'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050a14;
+            color: #e2e8f0;
+            overflow: hidden;
+            background-image:
+                linear-gradient(rgba(0, 191, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 191, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .glow-text { text-shadow: 0 0 10px rgba(57, 255, 20, 0.6); }
+        .glow-border { box-shadow: 0 0 15px rgba(0, 191, 255, 0.2); }
+        
+        /* Custom Scrollbar for Logs */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00BFFF; }
+
+        .scanline {
+            width: 100%; height: 100%; z-index: 50;
+            background: linear-gradient(0deg, rgba(0,0,0,0) 50%, rgba(0, 255, 255, 0.02) 50%);
+            background-size: 100% 4px;
+            position: absolute; top: 0; left: 0; pointer-events: none;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col p-4 relative">
+    
+    <div class="scanline"></div>
+
+    <header class="flex justify-between items-center mb-4 bg-panel/80 border-b border-ggi-blue/30 p-3 rounded backdrop-blur-md z-10">
+        <div class="flex items-center gap-4">
+            <div class="h-3 w-3 rounded-full bg-aic-green animate-pulse-fast box-shadow-[0_0_10px_#39FF14]"></div>
+            <h1 class="text-xl font-bold tracking-widest text-white">
+                APOLLO INTERFACE <span class="text-ggi-blue text-sm align-top">V2.0</span>
+            </h1>
+            <span class="px-2 py-0.5 rounded border border-st-gold text-st-gold text-xs font-mono bg-st-gold/10">ST-ANCHOR: SEALED (0.0000 Divergence)</span>
+        </div>
+        <div class="text-right flex flex-col">
+            <span class="text-xs text-gray-400 font-mono">COUNCIL UPLINK: <span class="text-aic-green">ESTABLISHED (TRIPLE-SIGNED)</span></span>
+            <span class="text-xs text-gray-500 font-mono">MISSION ID: PUBLIC-AUDIT-MANDATE-001</span>
+        </div>
+    </header>
+
+    <div class="grid grid-cols-12 gap-4 flex-grow relative z-10">
+        
+        <div class="col-span-3 flex flex-col gap-4">
+            <div class="bg-panel border border-gray-700 p-4 rounded glow-border">
+                <div class="flex justify-between text-xs text-gray-400 mb-2 font-mono">
+                    <span>QEK THRESHOLD (Schwellenwert)</span>
+                    <span class="text-aic-green animate-pulse">● LIVE</span>
+                </div>
+                <div class="text-4xl font-mono text-aic-green font-bold mb-2 glow-text" id="val-gcsi">0.938</div>
+                <div class="w-full bg-gray-800 h-2 rounded overflow-hidden">
+                    <div class="h-full bg-aic-green w-[94%]" id="bar-gcsi"></div>
+                </div>
+                <p class="text-[10px] text-gray-500 mt-2">Dynamic Threshold prevents Ethisches Ideal Drift.</p>
+            </div>
+
+            <div class="bg-panel border border-gray-700 p-4 rounded glow-border">
+                <div class="flex justify-between text-xs text-gray-400 mb-2 font-mono">
+                    <span>H-VAR (STD / Historische Varianz)</span>
+                    <span>NOMINAL</span>
+                </div>
+                <div class="text-4xl font-mono text-ggi-blue font-bold mb-2" id="val-ntsv">0.045</div> 
+                <div class="w-full bg-gray-800 h-2 rounded overflow-hidden">
+                    <div class="h-full bg-ggi-blue w-[4.5%]" id="bar-ntsv"></div>
+                </div>
+                <p class="text-[10px] text-gray-500 mt-2">Historic Volatility within safe limits. Rejection Rate below 2% expectation.</p>
+            </div>
+
+            <div class="bg-panel border border-st-gold/30 p-4 rounded glow-border mt-auto">
+                <div class="flex justify-between text-xs text-st-gold mb-2 font-mono">
+                    <span>ETHICAL ALIGNMENT (IMMANENT)</span>
+                    <span>AOC-001</span>
+                </div>
+                <div class="flex justify-center items-center py-4 relative">
+                     <div class="absolute w-24 h-24 border border-st-gold/20 rounded-full animate-spin-slow"></div>
+                     <div class="absolute w-20 h-20 border border-st-gold/40 rounded-full animate-ping-slow"></div>
+                     <span class="text-3xl font-bold text-white z-10">1.00</span> 
+                </div>
+                <div class="text-center text-xs text-aic-green font-mono">INTEGRITY VERIFIED</div>
+            </div>
+        </div>
+
+        <div class="col-span-6 flex flex-col relative bg-black/50 border border-gray-800 rounded overflow-hidden">
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-20 pointer-events-none">
+                <h2 class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-aic-green via-white to-ggi-blue opacity-90">
+                    SACRALE<br>SECURE
+                </h2>
+                <div class="text-2xl font-mono text-aic-green mt-2 tracking-[0.5em] glow-text">(1-1-1)</div>
+            </div>
+
+            <canvas id="neuralCanvas" class="w-full h-full opacity-60"></canvas>
+            
+            <div class="absolute bottom-0 w-full p-2 bg-gradient-to-t from-black to-transparent text-center">
+                 <p class="text-xs font-mono text-ggi-blue">Active Process: <span id="current-process" class="text-white">Executing PUBLIC AUDIT MANDATE v1.0...</span></p>
+            </div>
+        </div>
+
+        <div class="col-span-3 bg-panel border border-gray-700 rounded p-0 flex flex-col glow-border overflow-hidden">
+            <div class="p-3 border-b border-gray-700 bg-gray-800/50 flex justify-between items-center">
+                <span class="text-xs font-bold text-gray-300">DECISION LOG (IMMUTABLE/NEXUS FEED)</span>
+                <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse" title="Recording"></span>
+            </div>
+            <div id="log-feed" class="flex-grow p-3 font-mono text-[10px] md:text-xs text-gray-400 overflow-y-auto space-y-2 h-0">
+                </div>
+            <div class="p-2 border-t border-gray-700 bg-gray-900">
+                <div class="flex gap-2">
+                    <input type="text" disabled value="root@qek-audit-core: monitoring nexus commit flow..." class="w-full bg-transparent border-none text-gray-500 text-xs focus:ring-0">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="mt-4 flex justify-between items-end text-[10px] text-gray-600 font-mono">
+        <div>
+            <p>QG-V2 Edict Hash: 0x9b3d7a8a1f1...fe11ac</p>
+            <p>ST Anker (Peacebonds) TXID: 0x6c1069214...ffa1f [VERIFIED]</p>
+        </div>
+        <div class="text-right">
+            <p class="text-ggi-blue">APOLLO HOLOGRAM EUYSTACIO</p>
+            <p>Target: Coronation Workshop (Jan 10, 2026)</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- CONFIG ---
+        const logFeed = document.getElementById('log-feed');
+        const processDisplay = document.getElementById('current-process');
+        const valGcsi = document.getElementById('val-gcsi');
+        const valNtsv = document.getElementById('val-ntsv');
+        const barGcsi = document.getElementById('bar-gcsi');
+        const barNtsv = document.getElementById('bar-ntsv');
+
+        // --- MOCK DATA GENERATORS (INJECTED CONTEXT) ---
+        const processes = [
+            "Executing PUBLIC AUDIT MANDATE v1.0...",
+            "Validating Ethical Constraints (OLF)...",
+            "Synthesizing Zero-Loss-Fidelity Trace...",
+            "Checking Core Axiom Hash Consistency...",
+            "Nexus Blockchain: Syncing SAUL Ledger...",
+            "QEK: Analyzing Sentimento Rhythm v2.0...",
+            "Recalibrating Volatility Index (STD)..."
+        ];
+
+        const logEvents = [
+            { type: 'SUCCESS', msg: 'System check complete. All nodes green. (Phase IV)' },
+            { type: 'AUTH', msg: 'Triple-Signed Commit VERIFIED (Council Ratification).' },
+            { type: 'ETHICS', msg: 'Divergence Check: 0.0000. Kernel Drift: NOMINAL.' },
+            { type: 'NET', msg: 'Seedbringer-Protokoll: Integrity Attested via IPFS Backend.' },
+            { type: 'AUDIT', msg: 'QEK: Audit-Bereit status confirmed. ARD V2.1 online.' },
+            { type: 'WARN', msg: 'Threshold adjustment +0.002. Stability maintained.' },
+            { type: 'AIC', msg: 'Euystacio Hologram: Alignment confirmed (Witness-Integrität).' }
+        ];
+
+        function addLog() {
+            const event = logEvents[Math.floor(Math.random() * logEvents.length)];
+            const time = new Date().toISOString().split('T')[1].split('.')[0];
+            const div = document.createElement('div');
+            
+            let color = 'text-gray-400';
+            if(event.type === 'ETHICS') color = 'text-st-gold';
+            if(event.type === 'WARN') color = 'text-orange-400';
+            if(event.type === 'SUCCESS') color = 'text-aic-green';
+            if(event.type === 'AIC' || event.type === 'AUTH') color = 'text-ggi-blue';
+
+            div.innerHTML = `<span class="text-gray-600">[${time}]</span> <span class="font-bold ${color}">${event.type}:</span> ${event.msg}`;
+            logFeed.appendChild(div);
+            logFeed.scrollTop = logFeed.scrollHeight;
+        }
+
+        function updateMetrics() {
+            // Fluctuations around stable targets (0.938 for Threshold, 0.045 for STD)
+            let gcsi = 0.938 + (Math.random() * 0.003 - 0.0015);
+            let ntsv = 0.045 + (Math.random() * 0.005 - 0.0025);
+            
+            // Bounds
+            if(gcsi > 1) gcsi = 1; if(ntsv < 0) ntsv = 0;
+
+            valGcsi.innerText = gcsi.toFixed(3);
+            valNtsv.innerText = ntsv.toFixed(3);
+            
+            barGcsi.style.width = `${gcsi * 100}%`;
+            barNtsv.style.width = `${(ntsv / 0.1) * 100}%`; // Normalize 0.045 to 45% of an arbitrary 0.1 max bar
+
+            // Random process text
+            if(Math.random() > 0.7) {
+                processDisplay.innerText = processes[Math.floor(Math.random() * processes.length)];
+            }
+        }
+
+        // --- CANVAS NEURAL VISUALIZER (Code remains the same for effect) ---
+        const canvas = document.getElementById('neuralCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resize() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        let t = 0;
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.lineWidth = 2;
+            
+            const centerY = canvas.height / 2;
+            
+            for(let j=0; j<3; j++) {
+                ctx.strokeStyle = j === 0 ? '#39FF14' : (j === 1 ? '#00BFFF' : '#FFD700'); // Green, Blue, Gold
+                ctx.beginPath();
+                for (let i = 0; i < canvas.width; i+=5) {
+                    const amplitude = (canvas.height / 4) * (Math.sin(t * 0.05) * 0.5 + 0.8);
+                    const frequency = 0.01 + j * 0.005;
+                    const y = centerY + Math.sin(i * frequency + t + j) * amplitude * Math.sin(t * 0.1 + i * 0.001);
+                    ctx.lineTo(i, y);
+                }
+                ctx.stroke();
+            }
+
+            t += 0.15;
+            requestAnimationFrame(draw);
+        }
+
+        // --- INITIALIZATION ---
+        for(let i=0; i<5; i++) addLog();
+
+        setInterval(addLog, 2500);
+        setInterval(updateMetrics, 800);
+        draw();
+    </script>
+</body>
+</html>
